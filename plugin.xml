@@ -1,26 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin id="com.vileo.gdevelop.editor" version="1.0.0"
-        xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        xmlns:android="http://schemas.android.com/apk/res/android">
-  <name>Vileo Editor Native Bridge</name>
-  <description>Android Media3 Transformer bridge for a GDevelop video editor.</description>
+<plugin id="com.vileo.gdevelop.editor" version="2.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+  <name>Vileo Editor Native Bridge MAX</name>
+  <description>GDevelop Android video editor bridge based on Jetpack Media3 Transformer.</description>
   <license>MIT</license>
   <keywords>gdevelop,cordova,video,media3,transformer,editor</keywords>
-
   <engines><engine name="cordova-android" version=">=12.0.0" /></engines>
-  <dependency id="cordova-plugin-file" version=">=8.0.0" />
-
-  <js-module src="www/VileoEditor.js" name="VileoEditor">
-    <clobbers target="cordova.plugins.VileoEditor" />
-  </js-module>
-
+  <js-module src="www/VileoEditor.js" name="VileoEditor"><clobbers target="cordova.plugins.VileoEditor" /></js-module>
   <platform name="android">
-    <config-file target="res/xml/config.xml" parent="/*">
-      <feature name="VileoEditor">
-        <param name="android-package" value="com.vileo.gdevelop.editor.VileoEditorPlugin" />
-      </feature>
-    </config-file>
-
+    <config-file target="res/xml/config.xml" parent="/*"><feature name="VileoEditor"><param name="android-package" value="com.vileo.gdevelop.editor.VileoEditorPlugin" /></feature></config-file>
+    <config-file target="AndroidManifest.xml" parent="/manifest"><uses-permission android:name="android.permission.INTERNET" /></config-file>
     <source-file src="src/android/VileoEditorPlugin.java" target-dir="src/com/vileo/gdevelop/editor" />
     <framework src="src/android/vileo-media3.gradle" custom="true" type="gradleReference" />
   </platform>

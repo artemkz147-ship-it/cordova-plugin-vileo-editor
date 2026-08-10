@@ -1,11 +1,19 @@
 {
   "name": "cordova-plugin-vileo-editor",
-  "version": "1.0.0",
-  "description": "Native Android video editing/export bridge for Vileo Editor built with Jetpack Media3 Transformer.",
+  "version": "2.0.0",
+  "description": "Vileo Editor MAX native Media3 bridge for GDevelop",
   "cordova": {
     "id": "com.vileo.gdevelop.editor",
-    "platforms": ["android"]
+    "platforms": [
+      "android"
+    ]
   },
-  "keywords": ["cordova", "android", "gdevelop", "video", "editor", "media3", "transformer"],
+  "keywords": [
+    "cordova",
+    "gdevelop",
+    "android",
+    "video",
+    "media3"
+  ],
   "license": "MIT"
 }

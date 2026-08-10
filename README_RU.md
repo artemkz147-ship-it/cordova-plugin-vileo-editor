@@ -1,14 +1,25 @@
-# cordova-plugin-vileo-editor 1.0.0
+# Cordova plugin Vileo Editor MAX 2.0.0
 
-Нативный Android-мост для проекта Vileo Editor в GDevelop.
+Полноценная мобильная основа видеоредактора: интерфейс и проект — GDevelop, тяжёлая обработка — собственный Cordova-плагин на Android Jetpack Media3 Transformer.
 
-API JavaScript:
-- `pickVideo(success, error)`
-- `getVideoInfo(path, success, error)`
-- `exportVideo(options, success, error)`
-- `getProgress(success, error)`
-- `cancelExport(success, error)`
+## Реализовано
+- несколько видеоклипов в одном проекте; добавление, удаление, перестановка, дублирование и Split;
+- индивидуальная обрезка, скорость 0.25–4x, поворот, зеркалирование и масштаб;
+- отключение/громкость исходного звука;
+- яркость, контраст, насыщенность, оттенок, blur и набор фильтров;
+- несколько текстовых слоёв с временными диапазонами;
+- PNG/JPG/WebP слои поверх видео;
+- фоновая музыка с микшированием и зацикливанием;
+- холст Original / 9:16 / 16:9 / 1:1 / 4:5, Fit/Crop;
+- 720p / 1080p / 4K, H.264/H.265, 24/30/60 FPS, HDR keep или tone-map в SDR;
+- undo/redo, автосохранение черновика, прогресс и отмена экспорта;
+- экспорт MP4 в Movies/Vileo.
 
-Экспорт выполняется через Android Jetpack Media3 Transformer 1.11.0. Исходник выбирается системным `ACTION_OPEN_DOCUMENT`, поэтому отдельный доступ ко всей медиатеке приложению не требуется.
+## Подключение
+GDevelop-проект уже содержит Cordova dependency:
+`https://github.com/artemkz147-ship-it/cordova-plugin-vileo-editor.git`
 
-В GDevelop расширение `VileoNative` добавляет этот каталог как Cordova dependency. Для облачной сборки, если локальные зависимости не принимаются, этот каталог можно разместить в GitHub и заменить `version` зависимости на URL репозитория.
+Для сборки MAX-функций в указанном репозитории должна лежать версия плагина 2.0.0 из папки `native/cordova-plugin-vileo-editor` этого архива.
+
+## Ограничения Media3
+Нативный crossfade между соседними клипами Media3 Composition пока не поддерживает; клипы соединяются монтажным стыком. Reverse, AI-segmentation, стабилизация и chroma-key в этот независимый Media3-движок не включены.
